@@ -1,31 +1,51 @@
 🤖 WhatsApp Interactive Portfolio Bot
+
 Um assistente virtual interativo desenvolvido em Node.js e Express que utiliza a Twilio API for WhatsApp para transformar o seu currículo e portfólio num chat automatizado em tempo real. Ideal para impressionar recrutadores no LinkedIn com uma abordagem moderna, prática e orientada a tecnologia.
----
+
 🚀 Funcionalidades & Comandos
+
 O bot responde de forma dinâmica a comandos específicos enviados diretamente no chat do WhatsApp:
-`/projetos` ou `projetos` — Apresenta os principais projetos de destaque com tecnologias e descrições detalhadas.
-`/stack` ou `stack` — Exibe a stack tecnológica atual (Linguagens, frameworks, bases de dados e ferramentas de segurança).
-`/curriculo` ou `/cv` — Fornece o link direto e seguro para visualização e download do currículo atualizado.
-`/contato` ou `contato` — Disponibiliza canais de contacto profissional (LinkedIn, GitHub e e-mail).
+
+/projetos ou projetos — Apresenta os principais projetos de destaque com tecnologias e descrições detalhadas.
+
+/stack ou stack — Exibe a stack tecnológica atual (Linguagens, frameworks, bases de dados e ferramentas de segurança).
+
+/curriculo ou /cv — Fornece o link direto e seguro para visualização e download do currículo atualizado.
+
+/contato ou contato — Disponibiliza canais de contacto profissional (LinkedIn, GitHub e e-mail).
+
 Fallback Inteligente — Apresenta um menu de boas-vindas interativo caso o utilizador envie qualquer outra mensagem não reconhecida.
----
+
 🛠️ Stack Tecnológica & Arquitetura
+
 Este projeto baseia-se numa arquitetura de API REST orientada a eventos via webhooks:
+
 Runtime: Node.js
+
 Framework: Express.js
+
 Processamento de Dados: Body-Parser / Express URL-encoded
+
 Comunicação: Twilio API (TwiML - Twilio Markup Language para respostas XML)
+
 Controlo de Versões: Git & GitHub
+
 Hospedagem & Túnel: Render (Produção 24/7) / ngrok (Desenvolvimento Local)
----
+
 ⚙️ Como Executar Localmente
+
 Siga os passos abaixo para clonar, configurar e rodar o projeto na sua máquina:
+
 1. Pré-requisitos
+
 Node.js instalado no sistema.
+
 Uma conta ativa na Twilio com o WhatsApp Sandbox configurado.
+
 O ngrok instalado para testes de webhooks locais.
+
 2. Instalação
-```bash
+
 # Clone o repositório
 git clone https://github.com/seu-utilizador/seu-repositorio.git
 
@@ -34,34 +54,48 @@ cd nome-do-repositorio
 
 # Instale as dependências
 npm install
-```
+
+
 3. Configuração do Ambiente (.env)
-Crie um ficheiro `.env` na raiz do projeto (utilizando o modelo de configuração) e adicione as suas credenciais:
-```env
+
+Crie um ficheiro .env na raiz do projeto (utilizando o modelo de configuração) e adicione as suas credenciais:
+
 PORT=3000
 TWILIO_ACCOUNT_SID=o_seu_account_sid_aqui
 TWILIO_AUTH_TOKEN=o_seu_auth_token_aqui
 TWILIO_PHONE_NUMBER=whatsapp:+13732508034
-```
+
+
 4. Executando o Servidor
-Inicie o servidor localmente em modo de desenvolvimento com `nodemon`:
-```bash
+
+Inicie o servidor localmente em modo de desenvolvimento com nodemon:
+
 npm run dev
-```
+
+
 5. Expondo com o ngrok
+
 Num segundo terminal, abra o túnel ngrok apontando para a porta 3000:
-```bash
+
 ngrok http 3000
-```
-Copie o URL gerado (ex: `https://xxxx.ngrok-free.dev`) e cole-o no painel do WhatsApp Sandbox da Twilio no campo When a message comes in, acrescentando `/webhook` no final.
----
+
+
+Copie o URL gerado (ex: https://xxxx.ngrok-free.dev) e cole-o no painel do WhatsApp Sandbox da Twilio no campo When a message comes in, acrescentando /webhook no final.
+
 ☁️ Deploy em Produção (Render)
+
 Para manter o bot online 24 horas por dia de forma gratuita:
+
 Crie uma conta no Render ligada ao seu GitHub.
+
 Crie um novo Web Service e selecione o repositório deste projeto.
-Defina o comando de arranque como `node server.js`.
-Adicione as variáveis de ambiente (`TWILIO_ACCOUNT_SID`, `TWILIO_AUTH_TOKEN`, etc.) diretamente no painel de configuração do Render.
-Atualize o URL público definitivo gerado pelo Render com o sufixo `/webhook` no painel da Twilio.
----
+
+Defina o comando de arranque como node server.js.
+
+Adicione as variáveis de ambiente (TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN, etc.) diretamente no painel de configuração do Render.
+
+Atualize o URL público definitivo gerado pelo Render com o sufixo /webhook no painel da Twilio.
+
 📄 Licença
+
 Este projeto é de código aberto sob a licença MIT. Sinta-se à vontade para clonar, adaptar e utilizar para destacar o seu perfil profissional!
